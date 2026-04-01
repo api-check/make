@@ -3,65 +3,12 @@
   "description": "Look up an address by postal code and house number (NL, LU)",
   "type": "action",
   "parameters": [
-    {
-      "name": "country",
-      "type": "select",
-      "label": "Country",
-      "options": {
-        "nl": "Netherlands",
-        "lu": "Luxembourg"
-      },
-      "required": true,
-      "default": "nl"
-    },
-    {
-      "name": "postalcode",
-      "type": "text",
-      "label": "Postal Code",
-      "required": true,
-      "placeholder": "1012LM"
-    },
-    {
-      "name": "number",
-      "type": "text",
-      "label": "House Number",
-      "required": true,
-      "placeholder": "1"
-    },
-    {
-      "name": "numberAddition",
-      "type": "text",
-      "label": "Number Addition",
-      "required": false,
-      "placeholder": "A"
-    }
+    {"name": "country", "type": "select", "label": "Country", "options": {"nl": "Netherlands", "lu": "Luxembourg"}, "required": true, "default": "nl"},
+    {"name": "postalcode", "type": "text", "label": "Postal Code", "required": true, "placeholder": "1012LM"},
+    {"name": "number", "type": "text", "label": "House Number", "required": true, "placeholder": "1"},
+    {"name": "numberAddition", "type": "text", "label": "Number Addition", "required": false, "placeholder": "A"}
   ],
-  "api": {
-    "method": "GET",
-    "url": "/lookup/v1/address/",
-    "query": {
-      "country": "{{parameters.country}}",
-      "postalcode": "{{parameters.postalcode}}",
-      "number": "{{parameters.number}}",
-      "numberAddition": "{{parameters.numberAddition}}"
-    }
-  },
-  "response": {
-    "output": "{{response}}"
-  },
-  "sample": {
-    "street": "Damrak",
-    "number": "1",
-    "postalcode": "1012LM",
-    "city": "Amsterdam",
-    "municipality": "Amsterdam",
-    "country": {
-      "name": "Nederland",
-      "code": "nl"
-    },
-    "coordinates": {
-      "latitude": 52.3731,
-      "longitude": 4.8922
-    }
-  }
+  "api": {"method": "GET", "url": "/lookup/v1/postalcode/{{parameters.country}}", "query": {"postalcode": "{{parameters.postalcode}}", "number": "{{parameters.number}}", "numberAddition": "{{parameters.numberAddition}}"}},
+  "response": {"output": "{{response}}"},
+  "sample": {"street": "Damrak", "number": "1", "postalcode": "1012LM", "city": "Amsterdam", "municipality": "Amsterdam", "country": {"name": "Nederland", "code": "nl"}, "coordinates": {"latitude": 52.3731, "longitude": 4.8922}}
 }

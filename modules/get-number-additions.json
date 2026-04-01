@@ -1,0 +1,40 @@
+{
+  "name": "Get Number Additions",
+  "description": "Get available number additions for a postal code and house number",
+  "type": "action",
+  "parameters": [
+    {
+      "name": "country",
+      "type": "select",
+      "label": "Country",
+      "options": {"nl": "Netherlands", "lu": "Luxembourg"},
+      "required": true,
+      "default": "nl"
+    },
+    {
+      "name": "postalcode",
+      "type": "text",
+      "label": "Postal Code",
+      "required": true,
+      "placeholder": "1012LM"
+    },
+    {
+      "name": "number",
+      "type": "text",
+      "label": "House Number",
+      "required": true,
+      "placeholder": "1"
+    }
+  ],
+  "api": {
+    "method": "GET",
+    "url": "/lookup/v1/address/{{parameters.country}}",
+    "query": {
+      "postalcode": "{{parameters.postalcode}}",
+      "number": "{{parameters.number}}",
+      "fields": "[\"numberAdditions\"]"
+    }
+  },
+  "response": {"output": "{{response}}"},
+  "sample": {"number": "1", "numberAdditions": ["A", "B", "1-3"]}
+}

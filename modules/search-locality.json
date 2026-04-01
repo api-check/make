@@ -1,0 +1,13 @@
+{
+  "name": "Search Locality",
+  "description": "Search for localities (deelgemeenten) by name. Primarily relevant for Belgium.",
+  "type": "action",
+  "parameters": [
+    {"name": "country", "type": "select", "label": "Country", "options": {"be": "Belgium", "nl": "Netherlands"}, "required": true, "default": "be"},
+    {"name": "name", "type": "text", "label": "Locality Name", "required": true, "placeholder": "Antwerpen"},
+    {"name": "limit", "type": "number", "label": "Limit", "required": false, "default": 10}
+  ],
+  "api": {"method": "GET", "url": "/search/v1/locality/{{parameters.country}}", "query": {"name": "{{parameters.name}}", "limit": "{{parameters.limit}}"}},
+  "response": {"output": "{{response}}", "iterate": true},
+  "sample": {"id": 111, "name": "Antwerpen", "municipality": "Antwerpen"}
+}

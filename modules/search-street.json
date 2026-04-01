@@ -1,13 +1,13 @@
 {
-  "name": "Global Search",
-  "description": "Search for addresses, streets, cities, or postal codes across 18 European countries",
+  "name": "Search Street",
+  "description": "Search for streets by name across 18 European countries",
   "type": "action",
   "parameters": [
     {"name": "country", "type": "select", "label": "Country", "options": {"nl": "Netherlands", "be": "Belgium", "lu": "Luxembourg", "de": "Germany", "fr": "France", "cz": "Czech Republic", "fi": "Finland", "it": "Italy", "no": "Norway", "pl": "Poland", "pt": "Portugal", "ro": "Romania", "es": "Spain", "ch": "Switzerland", "at": "Austria", "dk": "Denmark", "gb": "United Kingdom", "se": "Sweden"}, "required": true, "default": "nl"},
-    {"name": "query", "type": "text", "label": "Search Query", "required": true, "placeholder": "Amsterdam"},
+    {"name": "name", "type": "text", "label": "Street Name", "required": true, "placeholder": "Damrak"},
     {"name": "limit", "type": "number", "label": "Limit", "required": false, "default": 10}
   ],
-  "api": {"method": "GET", "url": "/search/v1/global/{{parameters.country}}", "query": {"query": "{{parameters.query}}", "limit": "{{parameters.limit}}"}},
-  "response": {"output": "{{response.results}}", "iterate": true},
-  "sample": {"id": 12345, "name": "Amsterdam", "type": "city", "latitude": 52.3676, "longitude": 4.9041}
+  "api": {"method": "GET", "url": "/search/v1/street/{{parameters.country}}", "query": {"name": "{{parameters.name}}", "limit": "{{parameters.limit}}"}},
+  "response": {"output": "{{response}}", "iterate": true},
+  "sample": {"id": 12345, "name": "Damrak", "city": "Amsterdam"}
 }

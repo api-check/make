@@ -1,0 +1,17 @@
+{
+  "name": "Search Address",
+  "description": "Resolve a full address using IDs from other search results",
+  "type": "action",
+  "parameters": [
+    {"name": "country", "type": "select", "label": "Country", "options": {"nl": "Netherlands", "be": "Belgium", "lu": "Luxembourg", "de": "Germany", "fr": "France", "cz": "Czech Republic", "fi": "Finland", "it": "Italy", "no": "Norway", "pl": "Poland", "pt": "Portugal", "ro": "Romania", "es": "Spain", "ch": "Switzerland", "at": "Austria", "dk": "Denmark", "gb": "United Kingdom", "se": "Sweden"}, "required": true, "default": "nl"},
+    {"name": "street_id", "type": "number", "label": "Street ID", "required": false},
+    {"name": "city_id", "type": "number", "label": "City ID", "required": false},
+    {"name": "postalcode_id", "type": "number", "label": "Postal Code ID", "required": false},
+    {"name": "number", "type": "text", "label": "House Number", "required": false, "placeholder": "1"},
+    {"name": "numberAddition", "type": "text", "label": "Number Addition", "required": false, "placeholder": "A"},
+    {"name": "limit", "type": "number", "label": "Limit", "required": false, "default": 10}
+  ],
+  "api": {"method": "GET", "url": "/search/v1/address/{{parameters.country}}", "query": {"street_id": "{{parameters.street_id}}", "city_id": "{{parameters.city_id}}", "postalcode_id": "{{parameters.postalcode_id}}", "number": "{{parameters.number}}", "numberAddition": "{{parameters.numberAddition}}", "limit": "{{parameters.limit}}"}},
+  "response": {"output": "{{response}}", "iterate": true},
+  "sample": {"street": "Damrak", "number": "1", "postalcode": "1012LM", "city": "Amsterdam"}
+}
