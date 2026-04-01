@@ -1,0 +1,55 @@
+{
+  "name": "Global Search",
+  "description": "Search for addresses, streets, cities, or postal codes",
+  "type": "action",
+  "parameters": [
+    {
+      "name": "country",
+      "type": "select",
+      "label": "Country",
+      "options": {
+        "nl": "Netherlands",
+        "be": "Belgium",
+        "lu": "Luxembourg",
+        "fr": "France",
+        "de": "Germany"
+      },
+      "required": true,
+      "default": "nl"
+    },
+    {
+      "name": "query",
+      "type": "text",
+      "label": "Search Query",
+      "required": true,
+      "placeholder": "Amsterdam"
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "label": "Limit",
+      "required": false,
+      "default": 10
+    }
+  ],
+  "api": {
+    "method": "GET",
+    "url": "/search/v1/global/",
+    "query": {
+      "country": "{{parameters.country}}",
+      "query": "{{parameters.query}}",
+      "limit": "{{parameters.limit}}"
+    }
+  },
+  "response": {
+    "output": "{{response.results}}",
+    "iterate": true
+  },
+  "sample": {
+    "id": 12345,
+    "name": "Amsterdam",
+    "type": "city",
+    "latitude": 52.3676,
+    "longitude": 4.9041
+  }
+}

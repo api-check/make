@@ -1,0 +1,20 @@
+{
+  "name": "make-apicheck",
+  "version": "1.0.0",
+  "description": "Make (Integromat) integration for ApiCheck",
+  "main": "app.json",
+  "scripts": {
+    "validate": "make app:validate",
+    "publish": "make app:publish"
+  },
+  "keywords": ["make", "integromat", "apicheck", "address", "validation"],
+  "license": "MIT",
+  "author": {
+    "name": "ApiCheck",
+    "email": "support@apicheck.nl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/api-check/make-apicheck"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "apiKey",
+  "name": "ApiCheck API",
+  "parameters": [
+    {
+      "name": "apiKey",
+      "type": "password",
+      "label": "API Key",
+      "required": true
+    },
+    {
+      "name": "referer",
+      "type": "text",
+      "label": "Referer (optional)",
+      "required": false
+    }
+  ],
+  "test": {
+    "url": "/lookup/v1/countries/",
+    "method": "GET"
+  }
+}

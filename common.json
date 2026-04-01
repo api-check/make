@@ -1,0 +1,26 @@
+{
+  "baseUrl": "https://api.apicheck.nl",
+  "headers": {
+    "Accept": "application/json"
+  },
+  "countries": {
+    "nl": "Netherlands",
+    "be": "Belgium",
+    "lu": "Luxembourg",
+    "fr": "France",
+    "de": "Germany",
+    "cz": "Czech Republic",
+    "fi": "Finland",
+    "it": "Italy",
+    "no": "Norway",
+    "pl": "Poland",
+    "pt": "Portugal",
+    "ro": "Romania",
+    "es": "Spain",
+    "ch": "Switzerland",
+    "at": "Austria",
+    "dk": "Denmark",
+    "gb": "United Kingdom",
+    "se": "Sweden"
+  }
+}

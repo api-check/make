@@ -1,0 +1,24 @@
+{
+  "name": "ApiCheck",
+  "version": "1.0.0",
+  "description": "Address validation, search, and verification",
+  "keywords": ["address", "validation", "email", "phone", "postal"],
+  "url": "https://apicheck.nl",
+  "api": {
+    "baseUrl": "https://api.apicheck.nl",
+    "headers": {
+      "X-API-KEY": "{{connection.apiKey}}",
+      "Accept": "application/json"
+    }
+  },
+  "connection": "connection.json",
+  "common": "common.json",
+  "modules": {
+    "action": [
+      "modules/lookup-address.json",
+      "modules/verify-email.json", 
+      "modules/verify-phone.json",
+      "modules/global-search.json"
+    ]
+  }
+}

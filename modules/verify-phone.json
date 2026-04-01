@@ -1,0 +1,31 @@
+{
+  "name": "Verify Phone",
+  "description": "Verify a phone number for validity and formatting",
+  "type": "action",
+  "parameters": [
+    {
+      "name": "number",
+      "type": "text",
+      "label": "Phone Number",
+      "required": true,
+      "placeholder": "+31612345678",
+      "help": "Include country code"
+    }
+  ],
+  "api": {
+    "method": "GET",
+    "url": "/verify/v1/phone/",
+    "query": {
+      "number": "{{parameters.number}}"
+    }
+  },
+  "response": {
+    "output": "{{response}}"
+  },
+  "sample": {
+    "number": "+31612345678",
+    "valid": true,
+    "country_code": "NL",
+    "international_formatted": "+31 6 12345678"
+  }
+}

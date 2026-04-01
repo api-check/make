@@ -1,0 +1,30 @@
+{
+  "name": "Verify Email",
+  "description": "Verify an email address for validity, disposable status, and greylisting",
+  "type": "action",
+  "parameters": [
+    {
+      "name": "email",
+      "type": "text",
+      "label": "Email Address",
+      "required": true,
+      "placeholder": "test@example.com"
+    }
+  ],
+  "api": {
+    "method": "GET",
+    "url": "/verify/v1/email/",
+    "query": {
+      "email": "{{parameters.email}}"
+    }
+  },
+  "response": {
+    "output": "{{response}}"
+  },
+  "sample": {
+    "email": "test@example.com",
+    "status": "valid",
+    "disposable_email": false,
+    "greylisted": false
+  }
+}
